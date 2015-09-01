@@ -13,7 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import proj1cl.ClientM.MyClick;
+//import proj1cl.ClientM.MyClick;
 
 public class StartWindow {
 	private JTextArea login;

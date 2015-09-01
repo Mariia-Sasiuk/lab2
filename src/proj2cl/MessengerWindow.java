@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
-import proj1cl.ClientM.MyClick;
+//import proj1cl.ClientM.MyClick;
 
 public class MessengerWindow extends JFrame{
 	

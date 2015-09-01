@@ -13,17 +13,17 @@ public class Popup extends JPanel {
 	JScrollPane scr;
 	MessengerWindow mw;
 	
-	public Popup(JPanel p,JScrollPane scr, MessengerWindow mw){
+	public Popup(JPanel p,JScrollPane scr2, MessengerWindow mw2){
 		JMenuItem menu = new JMenuItem("Close tab");
 		popup.add(menu);
 		this.p=p;
-		this.scr=scr;
-		this.mw=mw;
+		this.scr=scr2;
+		this.mw=mw2;
 		ActionListener menuListener = new ActionListener() {
-            public void actionPerformed(ActionEvent event) {
-            	mw.getTabs().remove(scr);
-            }
-        };
+			public void actionPerformed(ActionEvent event) {
+				mw.getTabs().remove(scr);
+			}
+		};
         menu.addActionListener(menuListener);
 	}	
 	
