@@ -45,6 +45,10 @@ public class ServThread implements Runnable {
 			//System.out.println("From client "+id+" = "+messege);
 			else if (title.equals("message")){
 				String to =  MessageModel.parthSmth(messege,"to");
+				String from = MessageModel.parthSmth(messege,"from");
+
+						ServerM.saveMessage(to,from,from+": "+MessageModel.parthSmth(messege,"message")); //save history of messages
+
 				if (to.equals("All")) ServerM.sendToGroup(messege,id);
 				else ServerM.sendTo(messege,to);
 			}

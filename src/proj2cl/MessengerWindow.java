@@ -98,7 +98,7 @@ public class MessengerWindow extends JFrame{
 					if ("Chat".equals(tabs.getTitleAt(tabs.getSelectedIndex()))){
  					controller.out.println(MessageXML.packMes(t1.getText(),"All",cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
- 					ta1.setText("Me: "+t1.getText());
+ 					ta1.setText(cl.getMyname()+": "+t1.getText());
  					ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
@@ -110,7 +110,7 @@ public class MessengerWindow extends JFrame{
 						name=tabs.getTitleAt(tabs.getSelectedIndex());
 						controller.out.println(MessageXML.packMes(t1.getText(),name,cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
- 					ta1.setText("Me: "+t1.getText());
+ 					ta1.setText(cl.getMyname()+": "+t1.getText());
  					ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
