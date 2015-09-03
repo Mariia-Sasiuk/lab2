@@ -35,22 +35,17 @@ public class ClientM{
 	protected String title;
 	protected String mess;
 	private StartWindow sw;
-	
-	//public JPopupMenu popup;
+
 	
 	//final Logger logger = LoggerFactory.getLogger(ClientM.class);
-	
-	public ClientM (){
-		
-	}
+
 	public static void main(String[] args) throws UnknownHostException, IOException{
-			ClientM cl = new ClientM();
-			cl.sw = new StartWindow(cl);	
-			cl.run();
+		ClientM cl = new ClientM();
+		cl.sw = new StartWindow(cl);
+		cl.run();
 	}
 
 	public void run() {
-		
 		try {
 			s = new Socket("localhost",3460);
 		} catch (UnknownHostException e) {
@@ -59,8 +54,9 @@ public class ClientM{
 		 try {
 			inStream =new InputStreamReader(s.getInputStream(),"UTF8");
 	        outStream=new OutputStreamWriter(s.getOutputStream(),"UTF8");
-		} catch (UnsupportedEncodingException e1) {
-		} catch (IOException e1) {}
+		 } catch (UnsupportedEncodingException e1) {
+		 } catch (IOException e1) {}
+
          scanner=new Scanner(inStream);
          out=new PrintWriter(outStream,true);
          
@@ -72,61 +68,61 @@ public class ClientM{
             	 sw.loginfunc();
              }
              if (sw.getterMesWind()!=null){
-             if ("your id".equals(title)){
-            	 mess=(MessageXML.parthSmth(message,"message"));
-            	 sw.getterClient().setId(Integer.parseInt(mess));
-             }
-             else if (title.equals("List of contacts")){
-            	 mess=(MessageXML.parthSmth(message,"message"));
-            	 System.out.println(mess);
-	             String [] a=mess.split("/abzc/");
-	             sw.getterMesWind().getP0().removeAll();
-	             sw.getterMesWind().setL(new JLabel("You can contacte to:"));
-	             sw.getterMesWind().getP0().add(sw.getterMesWind().getL());
-	             Arrays.sort(a);
-	             for(int j=0;j<a.length;j++){
-	            	 JLabel label = new JLabel();
-	            	 label.setText(a[j]);
-	            	 label.addMouseListener(new MyClick());
-	            	 ll.add(label);
-	            	 sw.getterMesWind().getP0().add(label);
-	             }
-	             sw.getterMesWind().validate();
-	             sw.getterMesWind().repaint();
-             }
-             else if("New client".equals(title)){
-            	 JLabel label = new JLabel();
-            	 label.setText(MessageXML.parthSmth(message,"message"));
-            	 label.addMouseListener(new MyClick());
-            	 ll.add(label);
-            	 sw.getterMesWind().getP0().add(label);
-             }
-             
-             
-             else if (title.equals("message")){
-            	 String to = MessageXML.parthSmth(message,"to");
-            	 String from = MessageXML.parthSmth(message,"from");
-            	 mess=(MessageXML.parthSmth(message,"message")).replaceAll("/abzc/", "\n");
-	             JTextArea ta1=new JTextArea(1,25);
-	             ta1.setText(from+": "+mess);
-	             ta1.setBackground(Color.LIGHT_GRAY);
-	             ta1.setEditable(false);
-	             ta1.setWrapStyleWord(true);
-				 ta1.setLineWrap(true);
-				 if ("All".equals(to))
-					 sw.getterMesWind().getPmes().add(ta1);
-				 else {
-					 createTab(from);
-					 returnPan(from).add(ta1);
-					 sw.getterMesWind().setName(from);
+				 if ("your id".equals(title)){
+					 mess=(MessageXML.parthSmth(message,"message"));
+					 sw.getterClient().setId(Integer.parseInt(mess));
 				 }
-					 
-	          }
-             else if (title.equals("ping")){
-            	 out.println(MessageXML.sendInfo("", "", "ping")); 
-             }
-             
-             sw.getterMesWind().validate();
+				 else if (title.equals("List of contacts")){
+					 mess=(MessageXML.parthSmth(message,"message"));
+					 System.out.println(mess);
+					 String [] a=mess.split("/abzc/");
+					 sw.getterMesWind().getP0().removeAll();
+					 sw.getterMesWind().setL(new JLabel("You can contacte to:"));
+					 sw.getterMesWind().getP0().add(sw.getterMesWind().getL());
+					 Arrays.sort(a);
+					 for(int j=0;j<a.length;j++){
+						 JLabel label = new JLabel();
+						 label.setText(a[j]);
+						 label.addMouseListener(new MyClick());
+						 ll.add(label);
+						 sw.getterMesWind().getP0().add(label);
+					 }
+					 sw.getterMesWind().validate();
+					 sw.getterMesWind().repaint();
+				 }
+				 else if("New client".equals(title)){
+					 JLabel label = new JLabel();
+					 label.setText(MessageXML.parthSmth(message,"message"));
+					 label.addMouseListener(new MyClick());
+					 ll.add(label);
+					 sw.getterMesWind().getP0().add(label);
+				 }
+
+
+				 else if (title.equals("message")){
+					 String to = MessageXML.parthSmth(message,"to");
+					 String from = MessageXML.parthSmth(message,"from");
+					 mess=(MessageXML.parthSmth(message,"message")).replaceAll("/abzc/", "\n");
+					 JTextArea ta1=new JTextArea(1,25);
+					 ta1.setText(from+": "+mess);
+					 ta1.setBackground(Color.LIGHT_GRAY);
+					 ta1.setEditable(false);
+					 ta1.setWrapStyleWord(true);
+					 ta1.setLineWrap(true);
+					 if ("All".equals(to))
+						 sw.getterMesWind().getPmes().add(ta1);
+					 else {
+						 createTab(from, to);
+						 returnPan(from).add(ta1);
+						 sw.getterMesWind().setName(from);
+					 }
+
+				  }
+				 else if (title.equals("ping")){
+					 out.println(MessageXML.sendInfo("", "", "ping"));
+				 }
+
+				 sw.getterMesWind().validate();
              }
          }
  		
@@ -147,25 +143,20 @@ public class ClientM{
 		clients.add(name);
 		JPanel findp=new JPanel(new VerticalFlowLayout());
 		clpan.add(findp);
-		//findp.addMouseListener(new Popup(findp,sw.getterMesWind()).new MousePopupListener());
-		return findp;//clpan.get(clpan.size()-1);
+		return findp;
 	}
 	
-	public void createTab(String name){
+	public void createTab(String fromName, String toName){
 		for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
-			  if (sw.getterMesWind().getTabs().getTitleAt(i).equals(name))
-				   return;
+			if (sw.getterMesWind().getTabs().getTitleAt(i).equals(fromName))
+				return;
 			 
-		addTabPan(name,false);
-		   /*JPanel pcont = returnPan(name);
-		   //pcont.addMouseListener(new Popup(pcont,sw.getterMesWind()).new MousePopupListener());
-			
-		   JScrollPane scr = new JScrollPane (pcont);
-		   scr.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-		   sw.getterMesWind().getTabs().addTab(name, scr);*/
+		addTabPan(fromName,false);
+		out.println(MessageXML.sendRequestForMesHistory(fromName, toName));
+
 	}
 	
-	public void addTabPan (String tabName, boolean b){
+	public void addTabPan (String tabName, boolean activeTab){
 		JPanel pcont = returnPan(tabName);
 		JScrollPane scr = new JScrollPane (pcont);
 
@@ -173,7 +164,7 @@ public class ClientM{
 		
 		scr.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		sw.getterMesWind().getTabs().addTab(tabName, scr);
-		if (b)
+		if (activeTab)
 			sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount()-1);
 			
 	}
@@ -182,32 +173,20 @@ public class ClientM{
 
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
-			if (arg0.getButton()==MouseEvent.BUTTON1){
-				if (arg0.getSource()!=sw.getterMesWind().getB1()){
-			   System.out.println("click1");
-			   for (int li=0;li<ll.size();li++)
-				  if( ll.get(li)==(JLabel)arg0.getSource()){
-					  sw.getterMesWind().setName(ll.get(li).getText());
-				  }
+			if (arg0.getButton()==MouseEvent.BUTTON1 && arg0.getSource()!=sw.getterMesWind().getB1()){
+				System.out.println("click1");
+				for (int li=0;li<ll.size();li++)
+					if( ll.get(li)==(JLabel)arg0.getSource())
+						sw.getterMesWind().setName(ll.get(li).getText());
+
 		
-			   for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
-					  if (sw.getterMesWind().getTabs().getTitleAt(i).equals(sw.getterMesWind().getName())){
-						  sw.getterMesWind().getTabs().setSelectedIndex(i);
-						  return;
-					  } 
-			   addTabPan(sw.getterMesWind().getName(), true);
-				   /*JPanel pcont = returnPan(sw.getterMesWind().getName());
-				   
-				   JScrollPane scr = new JScrollPane (pcont);
-				   scr.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-				   sw.getterMesWind().getTabs().addTab(sw.getterMesWind().getName(), scr);
-				   sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount()-1);*/ 
-			 }
-				}
-			else if (arg0.getButton()==MouseEvent.BUTTON3){
-				System.out.println("click3");
+				for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
+					if (sw.getterMesWind().getTabs().getTitleAt(i).equals(sw.getterMesWind().getName())){
+						sw.getterMesWind().getTabs().setSelectedIndex(i);
+						return;
+					}
+				addTabPan(sw.getterMesWind().getName(), true);
 			}
-			   
 		}
 
 		@Override

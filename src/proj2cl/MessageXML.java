@@ -31,6 +31,14 @@ public class MessageXML {
 				 "</sendmes>";
 		return st;
 	}
+
+	public static String sendRequestForMesHistory(String user1Name,String user2Name ){
+		String st ="<sendmes>" +
+				"<title>history</title>" +
+				"<message>"+user1Name+" "+user2Name+"</message>"+
+				"</sendmes>";
+		return st;
+	}
 	
 	public static String parthSmth(String mes,String what){
 		String mesSmth = null;

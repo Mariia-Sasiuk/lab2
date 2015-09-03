@@ -54,10 +54,10 @@ public class ServThread implements Runnable {
 			}
 			else if ("login".equals(title)){
 				
-				String [] a= MessageModel.parthSmth(messege,"message").split(" ");
+				String [] logPas= MessageModel.parthSmth(messege,"message").split(" ");
 				for (int p=0;p<ServerM.RegistrUsers.size();p++){
-					if (a[0].equals(ServerM.RegistrUsers.get(p).getLogin()) && a[1].equals(ServerM.RegistrUsers.get(p).getPassword()))
-						avtorisation(a[0]);		
+					if (logPas[0].equals(ServerM.RegistrUsers.get(p).getLogin()) && logPas[1].equals(ServerM.RegistrUsers.get(p).getPassword()))
+						avtorisation(logPas[0]);
 				}				
 			}
 			else if ("registracia".equals(title)){
