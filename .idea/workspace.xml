@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba839293-c130-4744-bbbe-e7df271c0c11" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/proj2ser/HistoryStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proj2cl/ClientM.java" afterPath="$PROJECT_DIR$/src/proj2cl/ClientM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proj2cl/MessageXML.java" afterPath="$PROJECT_DIR$/src/proj2cl/MessageXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RegistrStore.xml" afterPath="$PROJECT_DIR$/RegistrStore.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proj2ser/ServThread.java" afterPath="$PROJECT_DIR$/src/proj2ser/ServThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/proj2ser/ServerM.java" afterPath="$PROJECT_DIR$/src/proj2ser/ServerM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab2.iml" afterPath="$PROJECT_DIR$/lab2.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lab2.iws" />
@@ -33,8 +31,8 @@
       <file leaf-file-name="ClientM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj2cl/ClientM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.214286">
-              <caret line="154" column="75" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="75" />
+            <state vertical-scroll-proportion="-5.125">
+              <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,34 +40,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageXML.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageXML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj2cl/MessageXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3328823">
-              <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+            <state vertical-scroll-proportion="-13.222222">
+              <caret line="36" column="31" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="31" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proj2cl/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Popup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proj2cl/Popup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -80,10 +56,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
               <folding>
-                <element signature="e#767#768#0" expanded="false" />
-                <element signature="e#783#784#0" expanded="false" />
-                <element signature="e#824#825#0" expanded="false" />
-                <element signature="e#845#846#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,6 +67,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistraciaStore.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj2ser/RegistraciaStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -115,20 +98,19 @@
         <entry file="file://$PROJECT_DIR$/src/proj2ser/ServerM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
               <folding>
-                <element signature="e#912#924#0" expanded="true" />
-                <element signature="e#986#995#0" expanded="true" />
-                <element signature="e#1121#1127#0" expanded="true" />
-                <element signature="e#1200#1220#0" expanded="true" />
-                <element signature="e#1421#1519#0" expanded="true" />
-                <element signature="e#1518#1519#0" expanded="true" />
-                <element signature="e#2210#2211#0" expanded="true" />
-                <element signature="e#2260#2261#0" expanded="true" />
-                <element signature="e#3673#3674#0" expanded="true" />
-                <element signature="e#3755#3756#0" expanded="true" />
-                <element signature="e#3793#3794#0" expanded="true" />
-                <element signature="e#3870#3871#0" expanded="true" />
+                <element signature="e#321#333#0" expanded="true" />
+                <element signature="e#395#404#0" expanded="true" />
+                <element signature="e#530#536#0" expanded="true" />
+                <element signature="e#686#784#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#1475#1476#0" expanded="true" />
+                <element signature="e#1525#1526#0" expanded="true" />
+                <element signature="e#2938#2939#0" expanded="true" />
+                <element signature="e#3020#3021#0" expanded="true" />
+                <element signature="e#3058#3059#0" expanded="true" />
+                <element signature="e#3135#3136#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,9 +119,22 @@
       <file leaf-file-name="ServThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj2ser/ServThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="59" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="59" />
+            <state vertical-scroll-proportion="-14.481482">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoryStore.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/proj2ser/HistoryStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6449086">
+              <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#734#754#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,6 +150,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -172,11 +174,12 @@
         <option value="$PROJECT_DIR$/src/proj2cl/MessengerWindow.java" />
         <option value="$PROJECT_DIR$/src/proj2cl/StartWindow.java" />
         <option value="$PROJECT_DIR$/src/proj2cl/Popup.java" />
-        <option value="$PROJECT_DIR$/src/proj2ser/ServerM.java" />
         <option value="$PROJECT_DIR$/RegistrStore.xml" />
-        <option value="$PROJECT_DIR$/src/proj2cl/ClientM.java" />
         <option value="$PROJECT_DIR$/src/proj2cl/MessageXML.java" />
+        <option value="$PROJECT_DIR$/src/proj2cl/ClientM.java" />
+        <option value="$PROJECT_DIR$/src/proj2ser/ServerM.java" />
         <option value="$PROJECT_DIR$/src/proj2ser/ServThread.java" />
+        <option value="$PROJECT_DIR$/src/proj2ser/HistoryStore.java" />
       </list>
     </option>
   </component>
@@ -615,7 +618,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441098192726</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4-th commit">
+      <created>1441297620954</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1441297620954</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -647,12 +656,21 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Model of Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Model of Client" />
+    <MESSAGE value="4-th commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="4-th commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -696,10 +714,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding>
-            <element signature="e#767#768#0" expanded="false" />
-            <element signature="e#783#784#0" expanded="false" />
-            <element signature="e#824#825#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -737,18 +752,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
-            <element signature="e#912#924#0" expanded="true" />
-            <element signature="e#986#995#0" expanded="true" />
-            <element signature="e#1121#1127#0" expanded="true" />
-            <element signature="e#1200#1220#0" expanded="true" />
-            <element signature="e#1421#1519#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#2210#2211#0" expanded="true" />
-            <element signature="e#2260#2261#0" expanded="true" />
-            <element signature="e#3673#3674#0" expanded="true" />
-            <element signature="e#3755#3756#0" expanded="true" />
-            <element signature="e#3793#3794#0" expanded="true" />
-            <element signature="e#3870#3871#0" expanded="true" />
+            <element signature="e#321#333#0" expanded="true" />
+            <element signature="e#395#404#0" expanded="true" />
+            <element signature="e#530#536#0" expanded="true" />
+            <element signature="e#686#784#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#1475#1476#0" expanded="true" />
+            <element signature="e#1525#1526#0" expanded="true" />
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+            <element signature="e#3135#3136#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,33 +817,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj2ser/RegistraciaStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_06/src.zip!/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4966292">
           <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj2cl/StartWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding>
-            <element signature="e#767#768#0" expanded="false" />
-            <element signature="e#783#784#0" expanded="false" />
-            <element signature="e#824#825#0" expanded="false" />
-            <element signature="e#845#846#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,14 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RegistrStore.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj2cl/MessengerWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -885,39 +868,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj2ser/ServerM.java">
+    <entry file="file://$PROJECT_DIR$/src/proj2cl/StartWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding>
-            <element signature="e#912#924#0" expanded="true" />
-            <element signature="e#986#995#0" expanded="true" />
-            <element signature="e#1121#1127#0" expanded="true" />
-            <element signature="e#1200#1220#0" expanded="true" />
-            <element signature="e#1421#1519#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#2210#2211#0" expanded="true" />
-            <element signature="e#2260#2261#0" expanded="true" />
-            <element signature="e#3673#3674#0" expanded="true" />
-            <element signature="e#3755#3756#0" expanded="true" />
-            <element signature="e#3793#3794#0" expanded="true" />
-            <element signature="e#3870#3871#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj2ser/ServThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="59" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj2cl/ClientM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.214286">
-          <caret line="154" column="75" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="75" />
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -926,9 +880,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proj2cl/MessageXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3328823">
-          <caret line="39" column="18" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
+        <state vertical-scroll-proportion="-13.222222">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj2cl/ClientM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.125">
+          <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj2ser/ServerM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="e#321#333#0" expanded="true" />
+            <element signature="e#395#404#0" expanded="true" />
+            <element signature="e#530#536#0" expanded="true" />
+            <element signature="e#686#784#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#1475#1476#0" expanded="true" />
+            <element signature="e#1525#1526#0" expanded="true" />
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+            <element signature="e#3058#3059#0" expanded="true" />
+            <element signature="e#3135#3136#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj2ser/RegistraciaStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RegistrStore.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj2ser/ServThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.481482">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj2ser/HistoryStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6449086">
+          <caret line="74" column="17" selection-start-line="74" selection-start-column="17" selection-end-line="74" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#734#754#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

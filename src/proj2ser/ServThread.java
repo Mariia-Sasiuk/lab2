@@ -47,7 +47,7 @@ public class ServThread implements Runnable {
 				String to =  MessageModel.parthSmth(messege,"to");
 				String from = MessageModel.parthSmth(messege,"from");
 
-						ServerM.saveMessage(to,from,from+": "+MessageModel.parthSmth(messege,"message")); //save history of messages
+						HistoryStore.saveMessage(to,from,from+": "+MessageModel.parthSmth(messege,"message")); //save history of messages
 
 				if (to.equals("All")) ServerM.sendToGroup(messege,id);
 				else ServerM.sendTo(messege,to);
@@ -76,7 +76,16 @@ public class ServThread implements Runnable {
 				avtorisation(a[0]);
 			
 			//else ServerM.sendToGroup(messege,id);
-		}
+			}
+			else if ("history".equals(title)){
+				String [] fileName= MessageModel.parthSmth(messege,"message").split(" ");
+				if ( new File(fileName[0]+fileName[1]+".xml").exists())
+					HistoryStore.parthHistory(fileName[0]+fileName[1]);
+
+				else if( new File(fileName[1]+fileName[0]+".xml").exists())
+					HistoryStore.parthHistory(fileName[1]+fileName[0]);
+
+			}
 		}
 	}
 	public void Send(String messege) {

@@ -152,7 +152,7 @@ public class ClientM{
 				return;
 			 
 		addTabPan(fromName,false);
-		out.println(MessageXML.sendRequestForMesHistory(fromName, toName));
+		out.println(MessageXML.sendRequestForMesHistory(fromName, toName)); // request for history
 
 	}
 	
