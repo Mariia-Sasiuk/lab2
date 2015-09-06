@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.Timer;
+import javax.xml.parsers.ParserConfigurationException;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class ServerM {
 	public static ArrayList <ServThread> clientList = new ArrayList <ServThread>();
 	public static ArrayList <Integer> clList = new ArrayList <Integer>();
+	public static ArrayList <Integer> oldclList = new ArrayList <Integer>();
 	public static Map ClLogs = new HashMap<Integer, String >();
 	public static ArrayList <User> RegistrUsers = new ArrayList <User>();
 
@@ -23,7 +25,7 @@ public class ServerM {
 		RegistraciaStore.parthStore();
 		
 	
-		Timer timer= new Timer( 10000 , new ActionListener(){
+		Timer timer= new Timer( 5000 , new ActionListener(){
 				public void actionPerformed(ActionEvent ev) {
 					pingClients();
 				}}
@@ -87,7 +89,7 @@ public class ServerM {
 				str+=ClLogs.get(clList.get(j))+"/abzc/";
 		
 		if (!"".equals(str))
-			sendToAll(MessageModel.createMes("List of contacts",str));
+			sendToAll(MessageModel.createMes("List of contacts", str));
 			
 		
 	}
@@ -106,11 +108,30 @@ public class ServerM {
 	}
 	
 	public static void addNewContact(int id){
-		sendToGroup(MessageModel.createMes("New client",ClLogs.get(id).toString()),id);	
+		sendToGroup(MessageModel.createMes("New client", ClLogs.get(id).toString()), id);
 	}
 	
 	public static void pingClients(){
+
 		sendAllContacts();
+		for (int i = 0; i < clientList.size() ; i++)
+			if (oldclList.contains(clientList.get(i).getId())) {
+				if (!clientList.get(i).getAlive()) {
+					try {
+						HistoryStore.createXMLFile();
+					} catch (ParserConfigurationException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		oldclList.clear();
+
+		for (int i = 0; i < clientList.size() ; i++) {
+			if (clList.contains(clientList.get(i).getId())){
+				clientList.get(i).setAlive(false);
+				oldclList.add(clientList.get(i).getId());
+			}
+		}
 		clList.clear();
 		sendToAll(MessageModel.createMes("ping", ""));
 	}

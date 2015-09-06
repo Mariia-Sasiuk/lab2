@@ -1,27 +1,26 @@
 package proj2cl;
 
-import java.awt.*;
-import java.awt.event.*;
 
+import proj2ser.HistoryStore;
+
+import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-//import javax.swing.JPopupMenu;
 
 public class Popup extends JPanel {
 	public JPopupMenu popup = new JPopupMenu();
-	JPanel p;
+	JPanel panel;
 	JScrollPane scr;
-	MessengerWindow mw;
+	MessengerWindow mesWind;
 	
-	public Popup(JPanel p,JScrollPane scr2, MessengerWindow mw2){
+	public Popup(JPanel p,JScrollPane scr2, MessengerWindow mw2,String tblName){
 		JMenuItem menu = new JMenuItem("Close tab");
 		popup.add(menu);
-		this.p=p;
+		this.panel=p;
 		this.scr=scr2;
-		this.mw=mw2;
+		this.mesWind=mw2;
 		ActionListener menuListener = new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				mw.getTabs().remove(scr);
+				mesWind.getTabs().remove(scr);
 			}
 		};
         menu.addActionListener(menuListener);
@@ -37,7 +36,7 @@ public class Popup extends JPanel {
 
 		private void checkPopup(MouseEvent e) {			
 			if (e.isPopupTrigger()) {System.out.println("ku");
-				popup.show(p, e.getX(), e.getY());
+				popup.show(panel, e.getX(), e.getY());
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package proj2ser;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -42,8 +43,21 @@ public class HistoryStore {
         dialog.add(mes);
         mesStore.add(dialog);
     }
-    public static void saveMessageInXML(){
-
+    public static void saveMessageInXML(Element root,Document document){
+        for (LinkedList<String> dialog : mesStore) {
+            for (int i = 2; i < dialog.size(); i++) {
+                Node userMes = document.createElement("message");
+                userMes.setTextContent(dialog.get(i));
+                root.appendChild(userMes);
+                if (i == dialog.size() - 1) {
+                    try {
+                        saveXMLFile(dialog.get(0) + dialog.get(1), document);
+                    } catch (TransformerException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
     public static void createXMLFile() throws ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -53,7 +67,9 @@ public class HistoryStore {
         Element root = document.createElement("root");
         document.appendChild(root);
 
+        saveMessageInXML(root,document);
 
+        //function should be run when tab is closing
     }
     public static void saveXMLFile(String name, Document doc) throws TransformerException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -63,19 +79,27 @@ public class HistoryStore {
         transformer.transform(source, result);
     }
 
-    public static void parthHistory(String fileName){
+    public static void parthHistory(String user1,String user2,String login){
+
         try{
             DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            doc = db.parse(new File (fileName+".xml"));
+            doc = db.parse(new File (user1+user2+".xml"));
 
-            NodeList nodeList = doc.getElementsByTagName("root");
+            NodeList nodeList = doc.getElementsByTagName("message");
 
-            for (int i=0; i<nodeList.getLength();i++){
-               // node=nodeList.item(i).getTextContent(); // addition messages from store to list; instead of node should be LIST
+            StringBuilder histiryMes= new StringBuilder();
 
+            for (int i=0; i<nodeList.getLength();i++) {
+                saveMessage(user1, user2, nodeList.item(i).getTextContent());
+                histiryMes.append(nodeList.item(i).getTextContent()+"/abzc/");
             }
-
+            if (login.equals(user1))
+                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user2,user1),user1);
+            else
+                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user1,user2),user2);
+            //System.out.println("parthHistory: "+MessageModel.createMes("history", histiryMes.toString(),user1,user2));
+            //return MessageModel.createMes("history", histiryMes.toString(),user1,user2);
 
         } catch (Exception e) {
             e.printStackTrace();

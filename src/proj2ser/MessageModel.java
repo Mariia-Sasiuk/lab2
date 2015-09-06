@@ -20,6 +20,15 @@ public class MessageModel {
 				"</sendmes>";
 		return st;
 	}
+	public static String createMes(String title,String message,String from, String to){
+		String st ="<sendmes>" +
+				"<title>"+title+"</title>" +
+				"<to>"+to+"</to>"+
+				"<from>"+from+"</from>"+
+				"<message>"+message+"</message>"+
+				"</sendmes>";
+		return st;
+	}
 	
 	public static String parthSmth(String mes,String what){
 		String mesTitle = null;

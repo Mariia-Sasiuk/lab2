@@ -12,12 +12,23 @@ import java.io.*;
 
 public class ServThread implements Runnable {
 	private int id;
+	private boolean alive = true;
 	private Socket cl;
 	private OutputStreamWriter outStream;
 	private InputStreamReader inStream;
 	private Scanner scaner;
 	public PrintWriter out;
-	
+	public String login;
+
+	public boolean getAlive() {return alive;}
+	public void setAlive(boolean alive) {this.alive = alive;}
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public ServThread(Socket cl, int id) {
 		
@@ -39,10 +50,10 @@ public class ServThread implements Runnable {
 			String messege = scaner.nextLine();
 			String title = MessageModel.parthSmth(messege,"title");
 			if (title.equals("ping")){
-						ServerM.clList.add(id);
-				//ServerM.addNewContact(id);
+				alive = true;
+				ServerM.clList.add(id);
 			}
-			//System.out.println("From client "+id+" = "+messege);
+
 			else if (title.equals("message")){
 				String to =  MessageModel.parthSmth(messege,"to");
 				String from = MessageModel.parthSmth(messege,"from");
@@ -80,20 +91,23 @@ public class ServThread implements Runnable {
 			else if ("history".equals(title)){
 				String [] fileName= MessageModel.parthSmth(messege,"message").split(" ");
 				if ( new File(fileName[0]+fileName[1]+".xml").exists())
-					HistoryStore.parthHistory(fileName[0]+fileName[1]);
+					HistoryStore.parthHistory(fileName[0], fileName[1],login);
 
 				else if( new File(fileName[1]+fileName[0]+".xml").exists())
-					HistoryStore.parthHistory(fileName[1]+fileName[0]);
-
+					HistoryStore.parthHistory(fileName[1], fileName[0],login);
+				else
+					ServerM.sendTo(MessageModel.createMes("nohistory","empty"),login);
 			}
+
 		}
 	}
 	public void Send(String messege) {
-		out.println(messege);	
+		out.println(messege);
 	}
 	
 	public void avtorisation (String login){
 		if (!ServerM.ClLogs.containsKey(login)){
+			this.login=login;
 			ServerM.sendOK(id);
 			ServerM.ClLogs.put(id,login);
 			ServerM.sendAllContacts(id);

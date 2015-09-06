@@ -99,7 +99,7 @@ public class MessengerWindow extends JFrame{
  					controller.out.println(MessageXML.packMes(t1.getText(),"All",cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
  					ta1.setText(cl.getMyname()+": "+t1.getText());
- 					ta1.setBackground(Color.GRAY);
+ 					//ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
  					ta1.setLineWrap(true);
@@ -111,7 +111,7 @@ public class MessengerWindow extends JFrame{
 						controller.out.println(MessageXML.packMes(t1.getText(),name,cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
  					ta1.setText(cl.getMyname()+": "+t1.getText());
- 					ta1.setBackground(Color.GRAY);
+ 					//ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
  					ta1.setLineWrap(true);

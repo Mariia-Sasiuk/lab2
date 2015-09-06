@@ -27,6 +27,8 @@ public class ClientM{
 	public Scanner scanner;
 	public PrintWriter out;
 	public String message;
+	private boolean hishoryRequested = false;
+	private String localMesStore = null;
 	
 	protected static ArrayList <String> clients = new ArrayList <String>();
 	protected static ArrayList <JPanel> clpan = new ArrayList <JPanel>();
@@ -97,23 +99,45 @@ public class ClientM{
 					 ll.add(label);
 					 sw.getterMesWind().getP0().add(label);
 				 }
+				 else if ("nohistory".equals(title)){
+					 hishoryRequested = true;
+				 }
 
-
-				 else if (title.equals("message")){
+				 else if (title.equals("message") || title.equals("history")){
 					 String to = MessageXML.parthSmth(message,"to");
 					 String from = MessageXML.parthSmth(message,"from");
 					 mess=(MessageXML.parthSmth(message,"message")).replaceAll("/abzc/", "\n");
 					 JTextArea ta1=new JTextArea(1,25);
-					 ta1.setText(from+": "+mess);
-					 ta1.setBackground(Color.LIGHT_GRAY);
+					 if (title.equals("message"))
+					 	ta1.setText(from+": "+mess);
+					 else
+						 ta1.setText(mess);
+					 //ta1.setBackground(Color.LIGHT_GRAY);
 					 ta1.setEditable(false);
 					 ta1.setWrapStyleWord(true);
 					 ta1.setLineWrap(true);
 					 if ("All".equals(to))
 						 sw.getterMesWind().getPmes().add(ta1);
 					 else {
-						 createTab(from, to);
-						 returnPan(from).add(ta1);
+						 createTab(from);
+						 if (!hishoryRequested && "message".equals(title)){
+							 localMesStore=mess;
+						 }
+						 if ("history".equals(title) || ("message".equals(title) && hishoryRequested)){
+							 returnPan(from).add(ta1);
+							 hishoryRequested=true;
+							 if (localMesStore!=null){
+								 JTextArea ta2=new JTextArea(1,25);
+								 ta2.setText(localMesStore);
+								 ta2.setEditable(false);
+								 ta2.setWrapStyleWord(true);
+								 ta2.setLineWrap(true);
+								 returnPan(from).add(ta2);
+								 localMesStore=null;
+
+							 }
+						 }
+
 						 sw.getterMesWind().setName(from);
 					 }
 
@@ -146,27 +170,32 @@ public class ClientM{
 		return findp;
 	}
 	
-	public void createTab(String fromName, String toName){
+	public void createTab(String fromName){
+		System.out.println("createTab: fromName="+fromName);
+
 		for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
 			if (sw.getterMesWind().getTabs().getTitleAt(i).equals(fromName))
 				return;
 			 
-		addTabPan(fromName,false);
-		out.println(MessageXML.sendRequestForMesHistory(fromName, toName)); // request for history
-
+		addTabPan(fromName, false);
 	}
 	
 	public void addTabPan (String tabName, boolean activeTab){
+		System.out.println("addTabPan: tabName="+tabName+"   activeTab="+activeTab);
 		JPanel pcont = returnPan(tabName);
 		JScrollPane scr = new JScrollPane (pcont);
 
-		pcont.addMouseListener(new Popup(pcont,scr,sw.getterMesWind()).new MousePopupListener());
-		
+		pcont.addMouseListener(new Popup(pcont, scr, sw.getterMesWind(), tabName).new MousePopupListener());
+
 		scr.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		sw.getterMesWind().getTabs().addTab(tabName, scr);
-		if (activeTab)
-			sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount()-1);
-			
+
+		out.println(MessageXML.sendRequestForMesHistory(sw.getterClient().getMyname(), tabName)); // request for history
+
+		if (activeTab) {
+			sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount() - 1);
+		}
+		System.out.println("addTabPan:");
 	}
 	
 	public class MyClick implements MouseListener{
@@ -174,7 +203,7 @@ public class ClientM{
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			if (arg0.getButton()==MouseEvent.BUTTON1 && arg0.getSource()!=sw.getterMesWind().getB1()){
-				System.out.println("click1");
+				System.out.println("mouseClicked");
 				for (int li=0;li<ll.size();li++)
 					if( ll.get(li)==(JLabel)arg0.getSource())
 						sw.getterMesWind().setName(ll.get(li).getText());
