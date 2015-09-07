@@ -1,6 +1,9 @@
 package proj2ser;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -18,8 +21,10 @@ public class ServerM {
 	public static Map ClLogs = new HashMap<Integer, String >();
 	public static ArrayList <User> RegistrUsers = new ArrayList <User>();
 
+	final static Logger logger = LogManager.getLogger(ServerM.class);
 	
 	public static void main(String[] args) {
+		logger.info("Server started working");
 		ServerSocket ss = null;
 		
 		RegistraciaStore.parthStore();
@@ -35,20 +40,20 @@ public class ServerM {
 		try {
 			ss = new ServerSocket(3460);
 			Socket client;
-			System.out.println("Waiting...");
+			logger.info(" Server is waiting for connection");
 			while (true){
 				client = ss.accept();
-				
-				System.out.println("Connection... "+(clientList.size()));
+
+				logger.info("Connection " + (clientList.size()));
 				ServThread clients = new ServThread (client, clientList.size());
 				clientList.add(clients);
-				clList.add(clientList.size()-1);
+				clList.add(clientList.size() - 1);
 				Thread t = new Thread (clients);
 				t.start();
-				System.out.println("toString "+client.toString());
 			}
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			logger.error(e1);
+			//e1.printStackTrace();
 		}
 		finally{
 			try {

@@ -96,7 +96,7 @@ public class ServThread implements Runnable {
 				else if( new File(fileName[1]+fileName[0]+".xml").exists())
 					HistoryStore.parthHistory(fileName[1], fileName[0],login);
 				else
-					ServerM.sendTo(MessageModel.createMes("nohistory","empty"),login);
+					ServerM.sendTo(MessageModel.createMes("nohistory",fileName[1]),login);
 			}
 
 		}

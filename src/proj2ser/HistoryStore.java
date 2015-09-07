@@ -68,8 +68,6 @@ public class HistoryStore {
         document.appendChild(root);
 
         saveMessageInXML(root,document);
-
-        //function should be run when tab is closing
     }
     public static void saveXMLFile(String name, Document doc) throws TransformerException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -98,8 +96,7 @@ public class HistoryStore {
                 ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user2,user1),user1);
             else
                 ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user1,user2),user2);
-            //System.out.println("parthHistory: "+MessageModel.createMes("history", histiryMes.toString(),user1,user2));
-            //return MessageModel.createMes("history", histiryMes.toString(),user1,user2);
+
 
         } catch (Exception e) {
             e.printStackTrace();

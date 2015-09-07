@@ -1,5 +1,8 @@
 package proj2cl;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -39,7 +42,7 @@ public class ClientM{
 	private StartWindow sw;
 
 	
-	//final Logger logger = LoggerFactory.getLogger(ClientM.class);
+	//final Logger logger = LogManager.getLogger(ClientM.class);
 
 	public static void main(String[] args) throws UnknownHostException, IOException{
 		ClientM cl = new ClientM();
@@ -100,7 +103,8 @@ public class ClientM{
 					 sw.getterMesWind().getP0().add(label);
 				 }
 				 else if ("nohistory".equals(title)){
-					 hishoryRequested = true;
+					 addMesWithoutHistory(MessageXML.parthSmth(message,"message"));
+
 				 }
 
 				 else if (title.equals("message") || title.equals("history")){
@@ -125,17 +129,7 @@ public class ClientM{
 						 }
 						 if ("history".equals(title) || ("message".equals(title) && hishoryRequested)){
 							 returnPan(from).add(ta1);
-							 hishoryRequested=true;
-							 if (localMesStore!=null){
-								 JTextArea ta2=new JTextArea(1,25);
-								 ta2.setText(localMesStore);
-								 ta2.setEditable(false);
-								 ta2.setWrapStyleWord(true);
-								 ta2.setLineWrap(true);
-								 returnPan(from).add(ta2);
-								 localMesStore=null;
-
-							 }
+							 addMesWithoutHistory(from);
 						 }
 
 						 sw.getterMesWind().setName(from);
@@ -171,7 +165,7 @@ public class ClientM{
 	}
 	
 	public void createTab(String fromName){
-		System.out.println("createTab: fromName="+fromName);
+		System.out.println("createTab: fromName=" + fromName);
 
 		for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
 			if (sw.getterMesWind().getTabs().getTitleAt(i).equals(fromName))
@@ -196,6 +190,20 @@ public class ClientM{
 			sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount() - 1);
 		}
 		System.out.println("addTabPan:");
+	}
+
+	public void addMesWithoutHistory (String from){
+		hishoryRequested=true;
+		if (localMesStore!=null){
+			JTextArea ta2=new JTextArea(1,25);
+			ta2.setText(from+": "+localMesStore);
+			ta2.setEditable(false);
+			ta2.setWrapStyleWord(true);
+			ta2.setLineWrap(true);
+			returnPan(from).add(ta2);
+			localMesStore=null;
+
+		}
 	}
 	
 	public class MyClick implements MouseListener{
