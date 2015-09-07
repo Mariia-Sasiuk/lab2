@@ -1,4 +1,4 @@
-package proj2cl;
+package main.java.client;
 
 public class Client {
 	private String myname;

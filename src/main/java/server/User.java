@@ -1,4 +1,4 @@
-package proj2ser;
+package main.java.server;
 
 public class User {
  private String login;

@@ -1,7 +1,5 @@
-package proj2cl;
+package main.java.client;
 
-
-import proj2ser.HistoryStore;
 
 import java.awt.event.*;
 import javax.swing.*;

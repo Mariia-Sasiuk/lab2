@@ -1,4 +1,4 @@
-package proj2ser;
+package main.java.server;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -37,7 +37,7 @@ public class HistoryStore {
             }
         }
 
-        LinkedList<String> dialog = new LinkedList<>();
+        LinkedList<String> dialog = new LinkedList<String>();
         dialog.add(user1);
         dialog.add(user2);
         dialog.add(mes);
@@ -70,6 +70,13 @@ public class HistoryStore {
         saveMessageInXML(root,document);
     }
     public static void saveXMLFile(String name, Document doc) throws TransformerException {
+
+        /*Node root = doc.getElementsByTagName("root").item(0);
+        while (doc.getElementsByTagName("message").getLength()>0){
+            root.removeChild(doc.getElementsByTagName("message").item(0));
+        }*/
+        //System.out.println("size roota="+doc.getElementsByTagName("message").getLength());
+
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);

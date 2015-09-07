@@ -1,4 +1,4 @@
-package proj2ser;
+package main.java.server;
 
 
 import org.apache.logging.log4j.LogManager;
@@ -26,7 +26,7 @@ public class ServerM {
 	public static void main(String[] args) {
 		logger.info("Server started working");
 		ServerSocket ss = null;
-		
+
 		RegistraciaStore.parthStore();
 		
 	
@@ -59,7 +59,7 @@ public class ServerM {
 			try {
 				ss.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error(e);
 			}
 		}
 	}

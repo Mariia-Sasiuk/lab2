@@ -1,4 +1,4 @@
-package proj2ser;
+package main.java.server;
 
 import java.net.Socket;
 //import java.util.ArrayList;
@@ -58,10 +58,11 @@ public class ServThread implements Runnable {
 				String to =  MessageModel.parthSmth(messege,"to");
 				String from = MessageModel.parthSmth(messege,"from");
 
-						HistoryStore.saveMessage(to,from,from+": "+MessageModel.parthSmth(messege,"message")); //save history of messages
-
 				if (to.equals("All")) ServerM.sendToGroup(messege,id);
-				else ServerM.sendTo(messege,to);
+				else {
+					HistoryStore.saveMessage(to,from,from+": "+ MessageModel.parthSmth(messege,"message")); //save history of messages
+					ServerM.sendTo(messege,to);
+				}
 			}
 			else if ("login".equals(title)){
 				

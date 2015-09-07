@@ -1,4 +1,4 @@
-package proj2cl;
+package main.java.client;
 
 import java.io.StringReader;
 
