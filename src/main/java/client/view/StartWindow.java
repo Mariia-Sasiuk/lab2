@@ -23,7 +23,8 @@ public class StartWindow {
 	private JPasswordField pass = new JPasswordField(10);
 	private Client cl = new Client();
 	private MessengerWindow mesWind;
-	
+	private JLabel avtorisationErrorLabel = new JLabel("Not unique login.");
+	private JLabel emptyFieldsLabel = new JLabel("Specify all fields");
 	private ClientM controller;
 	
 	public Client getterClient(){
@@ -35,7 +36,7 @@ public class StartWindow {
 	public StartWindow(ClientM controller){
 		this.controller=controller;
 		startWind.setLayout(new FlowLayout());
-		startWind.setSize(500,200);
+		startWind.setSize(500, 200);
 		startWind.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		startWind.setVisible(true);
 		startWind.setLocationRelativeTo(null);
@@ -48,9 +49,16 @@ public class StartWindow {
 		startWind.add(pass);
 		startWind.add(log);
 		startWind.add(reg);
+
 		log.addMouseListener(new MyClick());
 		reg.addMouseListener(new MyClick());
 		startWind.validate();
+	}
+	public void showAvtError(){
+		if(startWind.isShowing()){
+			startWind.add(avtorisationErrorLabel);
+			startWind.validate();
+		}
 	}
 	
 	public void loginfunc (){
@@ -72,14 +80,22 @@ public class StartWindow {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			if (e.getSource()==log){
-				cl.setMyname(login.getText());
-				controller.out.println(MessageXML.sendInfo(cl.getMyname(), new String(pass.getPassword()), "login"));
-			}
-			else if(e.getSource()==reg){
-				cl.setMyname(login.getText());
-				controller.out.println(MessageXML.sendInfo(cl.getMyname(),new String(pass.getPassword()),"registracia"));
+			String name = cl.getMyname();
+			String password = new String(pass.getPassword());
+			if (!"".equals(name) && !"".equals(password)){
+				if (e.getSource()==log){
+					cl.setMyname(login.getText());
+					controller.out.println(MessageXML.sendInfo(name, password, "login"));
 				}
+				else if(e.getSource()==reg){
+					cl.setMyname(login.getText());
+					controller.out.println(MessageXML.sendInfo(name, password,"registracia"));
+					}
+			}
+			else if(startWind.isShowing()){
+				startWind.add(emptyFieldsLabel);
+				startWind.validate();
+			}
 		}
 
 		@Override

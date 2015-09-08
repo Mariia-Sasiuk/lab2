@@ -2,6 +2,8 @@ package main.java.server.controller;
 
 import main.java.server.model.MessageModel;
 import main.java.server.model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.Socket;
 //import java.util.ArrayList;
@@ -15,22 +17,20 @@ import java.io.*;
 
 public class ServThread implements Runnable {
 	private int id;
-	private boolean alive = true;
+	private boolean alive = false;
 	private Socket cl;
 	private OutputStreamWriter outStream;
 	private InputStreamReader inStream;
 	private Scanner scaner;
 	public PrintWriter out;
 	public String login;
+	final static Logger logger = LogManager.getLogger(ServThread.class);
 
 	public boolean getAlive() {return alive;}
 	public void setAlive(boolean alive) {this.alive = alive;}
 
 	public int getId() {
 		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	public ServThread(Socket cl, int id) {
@@ -42,9 +42,9 @@ public class ServThread implements Runnable {
 				outStream = new OutputStreamWriter(this.cl.getOutputStream(),"UTF-8");
 				inStream = new InputStreamReader(this.cl.getInputStream(),"UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				ServerM.logger.error(e);
+				logger.error(e);
 			} catch (IOException e) {
-				ServerM.logger.error(e);
+				logger.error(e);
 			}
 		out = new PrintWriter (outStream, true);
 		scaner = new Scanner (inStream);		
@@ -71,7 +71,6 @@ public class ServThread implements Runnable {
 				}
 			}
 			else if ("login".equals(title)){
-				
 				String [] logPas= MessageModel.parthSmth(messege,"message").split(" ");
 				for (int p=0;p<ServerM.RegistrUsers.size();p++){
 					if (logPas[0].equals(ServerM.RegistrUsers.get(p).getLogin()) && logPas[1].equals(ServerM.RegistrUsers.get(p).getPassword()))
@@ -88,7 +87,7 @@ public class ServThread implements Runnable {
 				try {
 					RegistraciaStore.addUser(a[0],a[1]);
 				} catch (TransformerException e) {
-					ServerM.logger.error(e);
+					logger.error(e);
 				}
 				avtorisation(a[0]);
 
@@ -111,14 +110,17 @@ public class ServThread implements Runnable {
 	}
 	
 	public void avtorisation (String login){
-		if (!ServerM.ClLogs.containsKey(login)){
+		if (!ServerM.ClLogs.containsValue(login)){
 			this.login=login;
 			ServerM.clList.add(id);
-			ServerM.ClLogs.put(id,login);
-			ServerM.sendOK(id);
+			ServerM.ClLogs.put(id, login);
+			ServerM.sendAnsverForRegistr("OK", id);
 			ServerM.sendAllContacts(id);
 			ServerM.addNewContact(id);
 			ServerM.sendID(id);
+		}
+		else {
+			ServerM.sendAnsverForRegistr("Fail",id);
 		}
 	}
 }

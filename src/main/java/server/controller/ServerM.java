@@ -23,7 +23,7 @@ public class ServerM {
 	public static Map ClLogs = new HashMap<Integer, String >();
 	public static ArrayList <User> RegistrUsers = new ArrayList <User>();
 
-	public final static Logger logger = LogManager.getLogger(ServerM.class);
+	final static Logger logger = LogManager.getLogger(ServerM.class);
 	
 	public static void main(String[] args) {
 		logger.info("Server started working");
@@ -69,7 +69,7 @@ public class ServerM {
 }
 }
 
-private static ServThread getClient(int index) {
+public static ServThread getClient(int index) {
 		return ((ServThread) clientList.get(index));
 		}
 
@@ -129,6 +129,7 @@ public static void sendToAll(String messege) {
 				if (!clientList.get(i).getAlive()) {
 					try {
 						HistoryStore.createXMLFile();
+						ClLogs.remove(i);
 					} catch (ParserConfigurationException e) {
 						logger.error(e);
 					}
@@ -150,8 +151,8 @@ public static void sendToAll(String messege) {
 		getClient(id).Send(MessageModel.createMes("your id", Integer.toString(id)));
 	}
 	
-	public static void sendOK(int id){
-		getClient(id).Send(MessageModel.createMes("OK", Integer.toString(id)));
+	public static void sendAnsverForRegistr(String title,int id){
+		getClient(id).Send(MessageModel.createMes(title, Integer.toString(id)));
 	}
 
 

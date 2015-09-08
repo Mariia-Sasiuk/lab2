@@ -6,6 +6,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.java.client.controller.ClientM;
+import main.java.server.model.MessageModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,7 +19,8 @@ import static main.java.client.controller.ClientM.logger;
 
 
 public class MessageXML {
-	
+	final static Logger logger = LogManager.getLogger(MessageModel.class);
+
 	public static String packMes(String mes,String to,String from){
 		String newMes = mes.replaceAll("\n", "/abzc/");
 		String st ="<sendmes>" +

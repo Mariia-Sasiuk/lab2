@@ -1,6 +1,8 @@
 package main.java.server.controller;
 
 import main.java.server.model.MessageModel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -25,6 +27,7 @@ public class HistoryStore {
     private static Document doc;
     public static ArrayList<LinkedList<String>> mesStore = new ArrayList<LinkedList<String>>();
     private static final int COUNT_SAVE_MESSAGES = 5;
+    final static Logger logger = LogManager.getLogger(HistoryStore.class);
 
     public static void saveMessage(String user1, String user2, String mes){
         for (LinkedList<String> dialog : mesStore){
@@ -54,7 +57,7 @@ public class HistoryStore {
                     try {
                         saveXMLFile(dialog.get(0) + dialog.get(1), document);
                     } catch (TransformerException e) {
-                        e.printStackTrace();
+                        logger.error(e);
                     }
                 }
             }
@@ -101,7 +104,7 @@ public class HistoryStore {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 }

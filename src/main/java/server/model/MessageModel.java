@@ -6,6 +6,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import main.java.server.controller.ServerM;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -13,7 +15,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 public class MessageModel {
-	
+	final static Logger logger = LogManager.getLogger(MessageModel.class);
+
 	public static String createMes(String title,String message){
 		String st ="<sendmes>" +
 				"<title>"+title+"</title>" +
@@ -53,7 +56,7 @@ public class MessageModel {
 		        mesTitle = ((Node) fstNm.item(0)).getNodeValue();
 		       }
 		  } catch (Exception e) {
-			ServerM.logger.error(e);
+			logger.error(e);
 		  }  
 		return mesTitle;
 	}

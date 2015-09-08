@@ -33,7 +33,7 @@ public class Popup extends JPanel {
 		}
 
 		private void checkPopup(MouseEvent e) {			
-			if (e.isPopupTrigger()) {System.out.println("ku");
+			if (e.isPopupTrigger()) {
 				popup.show(panel, e.getX(), e.getY());
 			}
 		}

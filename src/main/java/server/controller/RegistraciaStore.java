@@ -11,13 +11,17 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 import main.java.server.model.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class RegistraciaStore {
 private static Document doc;
-public static void addUser(String login, String password) throws TransformerException{
+	final static Logger logger = LogManager.getLogger(RegistraciaStore.class);
+
+	public static void addUser(String login, String password) throws TransformerException{
 	Node store = doc.getElementsByTagName("store").item(0);
 	Node UserModel = doc.createElement("user");
 	Node UserLogin = doc.createElement("login");
@@ -54,13 +58,11 @@ public static void parthStore(){
 			NodeList NL = node.getChildNodes();
 			ServerM.RegistrUsers.add(new User(NL.item(0).getTextContent(),
 					NL.item(1).getTextContent()));
-			System.out.println("login = "+NL.item(0).getTextContent()+
-					"  password = "+NL.item(1).getTextContent());
 		}
 	       
 	       
 	  } catch (Exception e) {
-		ServerM.logger.error(e);
+		logger.error(e);
 	  }  
 }
 
