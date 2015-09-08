@@ -1,4 +1,4 @@
-package main.java.server;
+package main.java.server.controller;
 
 import java.io.File;
 
@@ -10,6 +10,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import main.java.server.model.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -59,7 +60,7 @@ public static void parthStore(){
 	       
 	       
 	  } catch (Exception e) {
-	      e.printStackTrace();
+		ServerM.logger.error(e);
 	  }  
 }
 

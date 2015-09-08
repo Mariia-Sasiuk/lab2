@@ -1,4 +1,4 @@
-package main.java.client;
+package main.java.client.model;
 
 public class Client {
 	private String myname;

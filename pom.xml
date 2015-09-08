@@ -36,8 +36,8 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>main.java.server.ServerM</mainClass>
-									<mainClass>main.java.client.ClientM</mainClass>
+									<mainClass>main.java.server.controller.ServerM</mainClass>
+									<mainClass>main.java.client.controller.ClientM</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>

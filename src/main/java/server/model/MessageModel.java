@@ -1,47 +1,38 @@
-package main.java.client;
+package main.java.server.model;
 
 import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import main.java.server.controller.ServerM;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-public class MessageXML {
+public class MessageModel {
 	
-	public static String packMes(String mes,String to,String from){
-		String newMes = mes.replaceAll("\n", "/abzc/");
+	public static String createMes(String title,String message){
 		String st ="<sendmes>" +
-				 "<title>message</title>" +
+				"<title>"+title+"</title>" +
+				"<message>"+message+"</message>"+
+				"</sendmes>";
+		return st;
+	}
+	public static String createMes(String title,String message,String from, String to){
+		String st ="<sendmes>" +
+				"<title>"+title+"</title>" +
 				"<to>"+to+"</to>"+
-				 "<from>"+from+"</from>"+
-				 "<message>"+newMes+"</message>"+
-				 "</sendmes>";
-		return st;
-	}
-
-	public static String sendInfo(String name,String passw, String title){
-		String st ="<sendmes>" +
-				 "<title>"+title+"</title>" +
-				 "<message>"+name+" "+passw+"</message>"+
-				 "</sendmes>";
-		return st;
-	}
-
-	public static String sendRequestForMesHistory(String user1Name,String user2Name ){
-		String st ="<sendmes>" +
-				"<title>history</title>" +
-				"<message>"+user1Name+" "+user2Name+"</message>"+
+				"<from>"+from+"</from>"+
+				"<message>"+message+"</message>"+
 				"</sendmes>";
 		return st;
 	}
 	
 	public static String parthSmth(String mes,String what){
-		String mesSmth = null;
+		String mesTitle = null;
 		try{ 
 			DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -59,11 +50,11 @@ public class MessageXML {
 		        NodeList fstNmElmntLst = fstElmnt.getElementsByTagName(what);
 		        Element fstNmElmnt = (Element) fstNmElmntLst.item(0);
 		        NodeList fstNm = fstNmElmnt.getChildNodes();
-		        mesSmth = ((Node) fstNm.item(0)).getNodeValue();
+		        mesTitle = ((Node) fstNm.item(0)).getNodeValue();
 		       }
 		  } catch (Exception e) {
-		      e.printStackTrace();
+			ServerM.logger.error(e);
 		  }  
-		return mesSmth;
+		return mesTitle;
 	}
 }

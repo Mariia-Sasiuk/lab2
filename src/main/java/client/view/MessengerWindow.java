@@ -1,4 +1,8 @@
-package main.java.client;
+package main.java.client.view;
+
+import main.java.client.model.Client;
+import main.java.client.controller.ClientM;
+import main.java.client.model.MessageXML;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -77,7 +81,6 @@ public class MessengerWindow extends JFrame{
 		add(p0,BorderLayout.WEST);
 		add(p1);
 		validate();
-		//repaint();
 	}
 	
 	public class MyClick implements MouseListener{
@@ -95,10 +98,9 @@ public class MessengerWindow extends JFrame{
 		public void mousePressed(MouseEvent e) {
 			if (e.getSource()==b1){
 					if ("Chat".equals(tabs.getTitleAt(tabs.getSelectedIndex()))){
- 					controller.out.println(MessageXML.packMes(t1.getText(),"All",cl.getMyname()));
+ 					controller.out.println(MessageXML.packMes(t1.getText(), "All", cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
  					ta1.setText(cl.getMyname()+": "+t1.getText());
- 					//ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
  					ta1.setLineWrap(true);
@@ -110,7 +112,6 @@ public class MessengerWindow extends JFrame{
 						controller.out.println(MessageXML.packMes(t1.getText(),name,cl.getMyname()));
  					JTextArea ta1=new JTextArea(1,25);
  					ta1.setText(cl.getMyname()+": "+t1.getText());
- 					//ta1.setBackground(Color.GRAY);
  					ta1.setEditable(false);
  					ta1.setWrapStyleWord(true);
  					ta1.setLineWrap(true);

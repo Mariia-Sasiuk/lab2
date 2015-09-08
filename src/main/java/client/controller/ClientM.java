@@ -1,4 +1,4 @@
-package main.java.client;
+package main.java.client.controller;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,11 +10,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
 
-
-
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-
+import main.java.client.model.MessageXML;
+import main.java.client.view.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class ClientM{
@@ -36,7 +35,7 @@ public class ClientM{
 	private StartWindow sw;
 
 	
-	//final Logger logger = LogManager.getLogger(ClientM.class);
+	 public final static Logger logger = LogManager.getLogger(ClientM.class);
 
 	public static void main(String[] args) throws UnknownHostException, IOException{
 		ClientM cl = new ClientM();
@@ -48,13 +47,19 @@ public class ClientM{
 		try {
 			s = new Socket("localhost",3460);
 		} catch (UnknownHostException e) {
-		} catch (IOException e) {}
+			logger.error(e);
+		} catch (IOException e) {
+			logger.error(e);
+		}
 		
 		 try {
 			inStream =new InputStreamReader(s.getInputStream(),"UTF8");
 	        outStream=new OutputStreamWriter(s.getOutputStream(),"UTF8");
 		 } catch (UnsupportedEncodingException e1) {
-		 } catch (IOException e1) {}
+			 logger.error(e1);
+		 } catch (IOException e1) {
+			 logger.error(e1);
+		 }
 
          scanner=new Scanner(inStream);
          out=new PrintWriter(outStream,true);
@@ -62,7 +67,7 @@ public class ClientM{
  		 while(scanner.hasNextLine()){
  			 
              message=scanner.nextLine();
-             title = MessageXML.parthSmth(message,"title");
+             title = MessageXML.parthSmth(message, "title");
              if ("OK".equals(title)){
             	 sw.loginfunc();
              }
@@ -73,7 +78,6 @@ public class ClientM{
 				 }
 				 else if (title.equals("List of contacts")){
 					 mess=(MessageXML.parthSmth(message,"message"));
-					 System.out.println(mess);
 					 String [] a=mess.split("/abzc/");
 					 sw.getterMesWind().getP0().removeAll();
 					 sw.getterMesWind().setL(new JLabel("You can contacte to:"));
@@ -110,7 +114,6 @@ public class ClientM{
 					 	ta1.setText(from+": "+mess);
 					 else
 						 ta1.setText(mess);
-					 //ta1.setBackground(Color.LIGHT_GRAY);
 					 ta1.setEditable(false);
 					 ta1.setWrapStyleWord(true);
 					 ta1.setLineWrap(true);
@@ -141,7 +144,9 @@ public class ClientM{
  		
 		try {
 			s.close();
-		} catch (IOException e) {}		
+		} catch (IOException e) {
+			logger.error(e);
+		}
 	}
 	
 	
@@ -159,7 +164,6 @@ public class ClientM{
 	}
 	
 	public void createTab(String fromName){
-		System.out.println("createTab: fromName=" + fromName);
 
 		for (int i=0;i<sw.getterMesWind().getTabs().getTabCount();i++)
 			if (sw.getterMesWind().getTabs().getTitleAt(i).equals(fromName))
@@ -169,11 +173,10 @@ public class ClientM{
 	}
 	
 	public void addTabPan (String tabName, boolean activeTab){
-		System.out.println("addTabPan: tabName="+tabName+"   activeTab="+activeTab);
 		JPanel pcont = returnPan(tabName);
 		JScrollPane scr = new JScrollPane (pcont);
 
-		pcont.addMouseListener(new Popup(pcont, scr, sw.getterMesWind(), tabName).new MousePopupListener());
+		pcont.addMouseListener(new main.java.client.view.Popup(pcont, scr, sw.getterMesWind(), tabName).new MousePopupListener());
 
 		scr.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		sw.getterMesWind().getTabs().addTab(tabName, scr);
@@ -183,7 +186,6 @@ public class ClientM{
 		if (activeTab) {
 			sw.getterMesWind().getTabs().setSelectedIndex(sw.getterMesWind().getTabs().getTabCount() - 1);
 		}
-		System.out.println("addTabPan:");
 	}
 
 	public void addMesWithoutHistory (String from){
@@ -205,7 +207,6 @@ public class ClientM{
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			if (arg0.getButton()==MouseEvent.BUTTON1 && arg0.getSource()!=sw.getterMesWind().getB1()){
-				System.out.println("mouseClicked");
 				for (int li=0;li<ll.size();li++)
 					if( ll.get(li)==(JLabel)arg0.getSource())
 						sw.getterMesWind().setName(ll.get(li).getText());

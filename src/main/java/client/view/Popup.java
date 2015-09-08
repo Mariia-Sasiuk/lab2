@@ -1,4 +1,4 @@
-package main.java.client;
+package main.java.client.view;
 
 
 import java.awt.event.*;
@@ -24,7 +24,7 @@ public class Popup extends JPanel {
         menu.addActionListener(menuListener);
 	}	
 	
-	class MousePopupListener extends MouseAdapter {
+	public class MousePopupListener extends MouseAdapter {
 		public void mousePressed(MouseEvent e) { checkPopup(e); }
 		public void mouseClicked(MouseEvent e) { checkPopup(e); }
 		public void mouseReleased(MouseEvent e) { 

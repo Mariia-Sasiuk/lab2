@@ -1,4 +1,4 @@
-package main.java.client;
+package main.java.client.view;
 
 import java.awt.Component;
 import java.awt.Container;

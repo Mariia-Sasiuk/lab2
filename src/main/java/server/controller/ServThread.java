@@ -1,4 +1,7 @@
-package main.java.server;
+package main.java.server.controller;
+
+import main.java.server.model.MessageModel;
+import main.java.server.model.User;
 
 import java.net.Socket;
 //import java.util.ArrayList;
@@ -39,7 +42,10 @@ public class ServThread implements Runnable {
 				outStream = new OutputStreamWriter(this.cl.getOutputStream(),"UTF-8");
 				inStream = new InputStreamReader(this.cl.getInputStream(),"UTF-8");
 			} catch (UnsupportedEncodingException e) {
-			} catch (IOException e) {}
+				ServerM.logger.error(e);
+			} catch (IOException e) {
+				ServerM.logger.error(e);
+			}
 		out = new PrintWriter (outStream, true);
 		scaner = new Scanner (inStream);		
 	}
@@ -48,7 +54,7 @@ public class ServThread implements Runnable {
 	public void run() {
 		while (scaner.hasNextLine()){
 			String messege = scaner.nextLine();
-			String title = MessageModel.parthSmth(messege,"title");
+			String title = MessageModel.parthSmth(messege, "title");
 			if (title.equals("ping")){
 				alive = true;
 				ServerM.clList.add(id);
@@ -82,8 +88,7 @@ public class ServThread implements Runnable {
 				try {
 					RegistraciaStore.addUser(a[0],a[1]);
 				} catch (TransformerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					ServerM.logger.error(e);
 				}
 				avtorisation(a[0]);
 			
@@ -109,8 +114,9 @@ public class ServThread implements Runnable {
 	public void avtorisation (String login){
 		if (!ServerM.ClLogs.containsKey(login)){
 			this.login=login;
-			ServerM.sendOK(id);
+			ServerM.clList.add(id);
 			ServerM.ClLogs.put(id,login);
+			ServerM.sendOK(id);
 			ServerM.sendAllContacts(id);
 			ServerM.addNewContact(id);
 			ServerM.sendID(id);

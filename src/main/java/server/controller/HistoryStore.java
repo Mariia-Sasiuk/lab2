@@ -1,5 +1,6 @@
-package main.java.server;
+package main.java.server.controller;
 
+import main.java.server.model.MessageModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -23,7 +24,7 @@ import java.util.LinkedList;
 public class HistoryStore {
     private static Document doc;
     public static ArrayList<LinkedList<String>> mesStore = new ArrayList<LinkedList<String>>();
-    private static final int COUNT_SAVE_MESSAGES = 10;
+    private static final int COUNT_SAVE_MESSAGES = 5;
 
     public static void saveMessage(String user1, String user2, String mes){
         for (LinkedList<String> dialog : mesStore){
@@ -71,12 +72,6 @@ public class HistoryStore {
     }
     public static void saveXMLFile(String name, Document doc) throws TransformerException {
 
-        /*Node root = doc.getElementsByTagName("root").item(0);
-        while (doc.getElementsByTagName("message").getLength()>0){
-            root.removeChild(doc.getElementsByTagName("message").item(0));
-        }*/
-        //System.out.println("size roota="+doc.getElementsByTagName("message").getLength());
-
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
@@ -100,7 +95,7 @@ public class HistoryStore {
                 histiryMes.append(nodeList.item(i).getTextContent()+"/abzc/");
             }
             if (login.equals(user1))
-                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user2,user1),user1);
+                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(), user2, user1),user1);
             else
                 ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user1,user2),user2);
 

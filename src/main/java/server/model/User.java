@@ -1,4 +1,4 @@
-package main.java.server;
+package main.java.server.model;
 
 public class User {
  private String login;

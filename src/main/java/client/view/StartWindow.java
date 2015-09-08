@@ -1,4 +1,8 @@
-package main.java.client;
+package main.java.client.view;
+
+import main.java.client.model.Client;
+import main.java.client.controller.ClientM;
+import main.java.client.model.MessageXML;
 
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
@@ -10,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 
-//import proj1cl.ClientM.MyClick;
 
 public class StartWindow {
 	private JTextArea login;
@@ -71,7 +74,7 @@ public class StartWindow {
 		public void mousePressed(MouseEvent e) {
 			if (e.getSource()==log){
 				cl.setMyname(login.getText());
-				controller.out.println(MessageXML.sendInfo(cl.getMyname(),new String(pass.getPassword()),"login"));
+				controller.out.println(MessageXML.sendInfo(cl.getMyname(), new String(pass.getPassword()), "login"));
 			}
 			else if(e.getSource()==reg){
 				System.out.println("registracia");

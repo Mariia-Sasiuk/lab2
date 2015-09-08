@@ -1,6 +1,8 @@
-package main.java.server;
+package main.java.server.controller;
 
 
+import main.java.server.model.MessageModel;
+import main.java.server.model.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,7 +23,7 @@ public class ServerM {
 	public static Map ClLogs = new HashMap<Integer, String >();
 	public static ArrayList <User> RegistrUsers = new ArrayList <User>();
 
-	final static Logger logger = LogManager.getLogger(ServerM.class);
+	public final static Logger logger = LogManager.getLogger(ServerM.class);
 	
 	public static void main(String[] args) {
 		logger.info("Server started working");
@@ -42,18 +44,21 @@ public class ServerM {
 			Socket client;
 			logger.info(" Server is waiting for connection");
 			while (true){
-				client = ss.accept();
-
+				try {
+					client = ss.accept();
+				} catch (IOException e) {
+					logger.error(e);
+					continue;
+				}
 				logger.info("Connection " + (clientList.size()));
 				ServThread clients = new ServThread (client, clientList.size());
 				clientList.add(clients);
-				clList.add(clientList.size() - 1);
+				//clList.add(clientList.size() - 1);
 				Thread t = new Thread (clients);
 				t.start();
 			}
 		} catch (IOException e1) {
 			logger.error(e1);
-			//e1.printStackTrace();
 		}
 		finally{
 			try {
@@ -125,7 +130,7 @@ public class ServerM {
 					try {
 						HistoryStore.createXMLFile();
 					} catch (ParserConfigurationException e) {
-						e.printStackTrace();
+						logger.error(e);
 					}
 				}
 			}
