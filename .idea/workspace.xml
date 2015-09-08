@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba839293-c130-4744-bbbe-e7df271c0c11" name="Default" comment="Logs were added comp">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/log4j2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/log4j2.xml" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\Client.java" afterPath="$PROJECT_DIR$/src/main/java/client/model/Client.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\ClientM.java" afterPath="$PROJECT_DIR$/src/main/java/client/controller/ClientM.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\MessageXML.java" afterPath="$PROJECT_DIR$/src/main/java/client/model/MessageXML.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\MessengerWindow.java" afterPath="$PROJECT_DIR$/src/main/java/client/view/MessengerWindow.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\Popup.java" afterPath="$PROJECT_DIR$/src/main/java/client/view/Popup.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\StartWindow.java" afterPath="$PROJECT_DIR$/src/main/java/client/view/StartWindow.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\client\VerticalFlowLayout.java" afterPath="$PROJECT_DIR$/src/main/java/client/view/VerticalFlowLayout.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\HistoryStore.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/HistoryStore.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\MessageModel.java" afterPath="$PROJECT_DIR$/src/main/java/server/model/MessageModel.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\RegistraciaStore.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/RegistraciaStore.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\ServThread.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/ServThread.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\ServerM.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/ServerM.java" />
-      <change type="MOVED" beforePath="C:\Users\masa0715\Documents\GitHub\lab2\src\main\java\server\User.java" afterPath="$PROJECT_DIR$/src/main/java/server/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runClient.bat" afterPath="$PROJECT_DIR$/runClient.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runServer.bat" afterPath="$PROJECT_DIR$/runServer.bat" />
+    <list default="true" id="ba839293-c130-4744-bbbe-e7df271c0c11" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/controller/ServThread.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/ServThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/controller/ServerM.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/ServerM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/client/view/StartWindow.java" afterPath="$PROJECT_DIR$/src/main/java/client/view/StartWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lab2.iws" />
@@ -111,8 +95,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/ServerM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="52" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="52" />
-              <folding />
+              <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+              <folding>
+                <marker date="1441721869169" expanded="true" signature="1801:2092" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +106,18 @@
       <file leaf-file-name="ServThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/ServThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9193038">
-              <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.81170887">
+              <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/client/view/StartWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -184,8 +180,9 @@
         <option value="$PROJECT_DIR$/src/main/java/client/model/MessageXML.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/controller/ClientM.java" />
         <option value="$PROJECT_DIR$/src/main/java/client/view/Popup.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/controller/ServerM.java" />
+        <option value="$PROJECT_DIR$/src/main/java/client/view/StartWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/controller/ServThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/controller/ServerM.java" />
       </list>
     </option>
   </component>
@@ -725,12 +722,18 @@
       <option name="project" value="LOCAL" />
       <updated>1441297620954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Almost ready">
+      <created>1441702074114</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1441702074114</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -743,7 +746,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23240224" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20537898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20537898" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4659218" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -772,7 +775,8 @@
     <MESSAGE value="Model of Client" />
     <MESSAGE value="4-th commit" />
     <MESSAGE value="Logs were added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Logs were added" />
+    <MESSAGE value="Almost ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -905,18 +909,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/client/view/StartWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/ServerM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="52" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="52" />
-          <folding />
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+          <folding>
+            <marker date="1441721869169" expanded="true" signature="1801:2092" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/ServThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9193038">
-          <caret line="122" column="9" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.81170887">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
           <folding />
         </state>
       </provider>

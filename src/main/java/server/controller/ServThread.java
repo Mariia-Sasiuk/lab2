@@ -91,8 +91,7 @@ public class ServThread implements Runnable {
 					ServerM.logger.error(e);
 				}
 				avtorisation(a[0]);
-			
-			//else ServerM.sendToGroup(messege,id);
+
 			}
 			else if ("history".equals(title)){
 				String [] fileName= MessageModel.parthSmth(messege,"message").split(" ");

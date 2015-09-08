@@ -77,10 +77,9 @@ public class StartWindow {
 				controller.out.println(MessageXML.sendInfo(cl.getMyname(), new String(pass.getPassword()), "login"));
 			}
 			else if(e.getSource()==reg){
-				System.out.println("registracia");
 				cl.setMyname(login.getText());
 				controller.out.println(MessageXML.sendInfo(cl.getMyname(),new String(pass.getPassword()),"registracia"));
-				System.out.println("registracia2");}
+				}
 		}
 
 		@Override

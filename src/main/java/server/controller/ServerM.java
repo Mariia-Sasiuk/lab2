@@ -63,17 +63,17 @@ public class ServerM {
 		finally{
 			try {
 				ss.close();
-			} catch (IOException e) {
-				logger.error(e);
-			}
-		}
+	} catch (IOException e) {
+		logger.error(e);
 	}
+}
+}
 
-	private static ServThread getClient(int index) {
+private static ServThread getClient(int index) {
 		return ((ServThread) clientList.get(index));
-	}
+		}
 
-	public static void sendToAll(String messege) {
+public static void sendToAll(String messege) {
 		for (int i=0;i<clientList.size();i++)
 			getClient(i).Send(messege);
 	}
