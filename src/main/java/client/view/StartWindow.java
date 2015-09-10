@@ -80,15 +80,16 @@ public class StartWindow {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			String name = cl.getMyname();
+			String name = login.getText();
 			String password = new String(pass.getPassword());
 			if (!"".equals(name) && !"".equals(password)){
 				if (e.getSource()==log){
-					cl.setMyname(login.getText());
+					cl.setMyname(name);
 					controller.out.println(MessageXML.sendInfo(name, password, "login"));
 				}
 				else if(e.getSource()==reg){
-					cl.setMyname(login.getText());
+					System.out.println("name = "+login.getText());
+					cl.setMyname(name);
 					controller.out.println(MessageXML.sendInfo(name, password,"registracia"));
 					}
 			}

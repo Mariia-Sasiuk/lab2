@@ -29,25 +29,25 @@ public class HistoryStore {
     private static final int COUNT_SAVE_MESSAGES = 5;
     final static Logger logger = LogManager.getLogger(HistoryStore.class);
 
-    public static void saveMessage(String user1, String user2, String mes){
-        for (LinkedList<String> dialog : mesStore){
+    public static void saveMessage(String user1, String user2, String mes) {
+        for (LinkedList<String> dialog : mesStore) {
             if (user1.equals(dialog.get(0)) && user2.equals(dialog.get(1))
-                    || user1.equals(dialog.get(1)) && user2.equals(dialog.get(0)))
-            {
+                    || user1.equals(dialog.get(1)) && user2.equals(dialog.get(0))) {
                 dialog.add(mes);
-                if (dialog.size()>COUNT_SAVE_MESSAGES+2)
+                if (dialog.size() > COUNT_SAVE_MESSAGES + 2)
                     dialog.remove(2);
                 return;
             }
         }
 
-        LinkedList<String> dialog = new LinkedList<String>();
+        LinkedList<String> dialog = new LinkedList<>();
         dialog.add(user1);
         dialog.add(user2);
         dialog.add(mes);
         mesStore.add(dialog);
     }
-    public static void saveMessageInXML(Element root,Document document){
+
+    public static void saveMessageInXML(Element root, Document document) {
         for (LinkedList<String> dialog : mesStore) {
             for (int i = 2; i < dialog.size(); i++) {
                 Node userMes = document.createElement("message");
@@ -63,6 +63,7 @@ public class HistoryStore {
             }
         }
     }
+
     public static void createXMLFile() throws ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -71,36 +72,37 @@ public class HistoryStore {
         Element root = document.createElement("root");
         document.appendChild(root);
 
-        saveMessageInXML(root,document);
+        saveMessageInXML(root, document);
     }
+
     public static void saveXMLFile(String name, Document doc) throws TransformerException {
 
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(name+".xml"));
+        StreamResult result = new StreamResult(new File(name + ".xml"));
         transformer.transform(source, result);
     }
 
-    public static void parthHistory(String user1,String user2,String login){
+    public static void parthHistory(String user1, String user2, String login) {
 
-        try{
-            DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-            doc = db.parse(new File (user1+user2+".xml"));
+            doc = db.parse(new File(user1 + user2 + ".xml"));
 
             NodeList nodeList = doc.getElementsByTagName("message");
 
-            StringBuilder histiryMes= new StringBuilder();
+            StringBuilder histiryMes = new StringBuilder();
 
-            for (int i=0; i<nodeList.getLength();i++) {
+            for (int i = 0; i < nodeList.getLength(); i++) {
                 saveMessage(user1, user2, nodeList.item(i).getTextContent());
-                histiryMes.append(nodeList.item(i).getTextContent()+"/abzc/");
+                histiryMes.append(nodeList.item(i).getTextContent() + "/abzc/");
             }
             if (login.equals(user1))
-                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(), user2, user1),user1);
+                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(), user2, user1), user1);
             else
-                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(),user1,user2),user2);
+                ServerM.sendTo(MessageModel.createMes("history", histiryMes.toString(), user1, user2), user2);
 
 
         } catch (Exception e) {
